@@ -44,7 +44,7 @@
 
          //mobile validation
          if (!(/^\d{10}$/.test(mobile))) {
-             res.status(400).send({ status: false, message: `Mobile number should be a valid email address` })
+             res.status(400).send({ status: false, message: `Mobile number should be a valid` })
              return
          }
 
@@ -68,14 +68,15 @@
          }
          const collegeNames = req.body.collegeName
          const college = await CollegeModel.findOne({ name: collegeNames })
-         if (!college) {
+
+         if (!college) { //if incorrect collegeName in intern creation
              return res.status(404).send({ status: false, message: 'College details not found from your CollegeName' })
          }
          // console.log(college)
          const iD = college._id
          console.log(requestBody)
          let collegeId = iD
-         requestBody.collegeId = iD
+         requestBody.collegeId = collegeId
          console.log(requestBody)
 
          const internData = { name, email, mobile, collegeId }

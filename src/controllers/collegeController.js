@@ -87,7 +87,7 @@ const collegeDetails = async function(req, res) {
                 name: collegedetail.name,
                 fullName: collegedetail.fullName,
                 logoLink: collegedetail.logoLink,
-                interns: "No one apllied in this college"
+                interns: "No one applied from this college"
             }
 
             // []
